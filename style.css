@@ -1,0 +1,31 @@
+body {
+    background-color: beige;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 5rem;
+}
+
+.color-container {
+    border: 1px solid black;
+    height: 200px;
+    width: 400px;
+}
+
+.generate-btn {
+    border: none;
+    background-color: rgb(65, 165, 131);
+    color: #fff;
+    padding: 0.5rem 2rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.generate-btn:hover {
+    background-color:rgb(37, 95, 76);
+}
