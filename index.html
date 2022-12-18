@@ -5,41 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <title>Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body>
-    <div class="container"></div>
+    <h1 class="title">Budget tracker</h1>
+    <div class="container">
+        <div class="left-container">
+            <select id="main-select">
+                <option id="current-budget" value="current-budget">Current Budget</option>
+                <option id="add-expense" value="add-expense">Add Expense</option>
+            </select>
+            <div class="current-budget-container">
+                <div class="current-budget-form">
+                    <label for="current-budget-input" name="current-budget">Budget:</label>
+                    <input id="current-budget-input" type="number">
+                    <button id="submit-budget-btn">Submit Budget</button>
+                </div>
+            </div>
+            <div class="add-expense-container">
+                <label for="expense-date" name="expense-date">Date:</label>
+                <input id="expense-date" type="date">
 
-    <div class="form-container">
-        <form class="form-content" action="index.html">
-            <span class="exit-btn">&times;</span>
-            <p>We are here to help you, if you want to fill a complaint with us then please fill this form and submit
-                it. We
-                are pushing ourselves to meet all of our customers demands and will look into each and every complaint
-                that
-                we receive.</p>
-            <p class="form-error-msg">Please correct mistakes made in your complaint form.</p>
+                <label for="expense-amount" name="expense-amount">Spent Amount:</label>
+                <input id="expense-amount" type="number">
 
-            <label for="first-name-input">First Name:</label>
-            <input type="text" id="first-name-input" name="first-name" required>
+                <label for="expense-type" name="expense-type">Expense Type:</label>
+                <select name="expense-type" id="expense-type">
+                    <option value="groceries">Groceries</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="car">Car</option>
+                    <option value="leisure">Leisure</option>
+                    <option value="clothing">Clothing</option>
+                </select>
 
-            <label for="last-name-input">Last Name:</label>
-            <input type="text" id="last-name-input" name="last-name" required>
+                <label for="expense-note">Notes:</label>
+                <textarea name="expense-note" id="expense-note" rows="2"></textarea>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+                <button id="save-expense-btn">Save Expense</button>
+            </div>
+        </div>
 
-            <label for="complaint">Complaint:</label>
-            <textarea name="complaint" id="complaint" rows="5" required></textarea>
-
-            <button class="submit-btn">Submit</button>
-        </form>
+        <div class="right-container"></div>
     </div>
-
-    <button class="help-btn">Help</button>
 </body>
 
 </html>

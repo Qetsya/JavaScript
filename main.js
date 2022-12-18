@@ -1,135 +1,36 @@
-const helpBtn = document.querySelector(".help-btn");
-const submitBtn = document.querySelector(".submit-btn");
-const exitBtn = document.querySelector(".exit-btn");
+const currentBudgetEl = document.querySelector("#current-budget");
+const addExpenseEl = document.querySelector("#add-expense");
+const expenseContainer = document.querySelector(".add-expense-container");
+const budgetContainer = document.querySelector(".current-budget-container");
+const mainSelect = document.querySelector("#main-select");
+const budgetInput = document.querySelector("#current-budget-input");
+const submitBudgetBtn = document.querySelector("#submit-budget-btn");
+const budgetForm = document.querySelector(".current-budget-form");
 
-const form = document.querySelector(".form-container");
+console.log(currentBudgetEl, addExpenseEl, expenseContainer, budgetContainer);
+mainSelect.addEventListener("change", function () {
+    if (addExpenseEl) {
+        expenseContainer.style.display = "flex";
+        budgetContainer.style.display = "none";
+    }
+});
 
-const showFirstName = document.querySelector(".show-first-name");
-const showLastName = document.querySelector(".show-last-name");
-const showEmail = document.querySelector(".show-email");
-const showComplaint = document.querySelector(".show-complaint");
-
-const firstNameInput = document.querySelector("#first-name-input");
-const lastNameInput = document.querySelector("#last-name-input");
-const email = document.querySelector("#email");
-const complaint = document.querySelector("#complaint");
-
-const formError = document.querySelector(".form-error-msg");
-
-const container = document.querySelector(".container");
-
-helpBtn.addEventListener("click", openForm);
-submitBtn.addEventListener("click", submitForm);
-exitBtn.addEventListener("click", closeForm);
-
-function openForm() {
-    console.log("openForm");
-    form.style.display = "block";
-}
-
-function closeForm() {
-    console.log("closeForm");
-    form.style.display = "none";
-}
-
-function areInputsValid() {
-    if (
-        !firstNameInput.value ||
-        !lastNameInput.value ||
-        isEmailValid() ||
-        !complaint.value
-    ) {
+function isBudgetValid() {
+    if (!budgetInput.value) {
+        budgetInput.style.border = "1px solid red";
+        console.log("hi");
         return false;
-    }
-    cleanupErrors();
-    return true;
-}
 
-function isEmailValid() {
-    return !email.value || email.validity.typeMismatch;
-}
-
-function time() {
-    const now = new Date().toLocaleDateString();
-    return now;
-}
-
-function submitForm(event) {
-    event.preventDefault();
-
-    if (areInputsValid()) {
-        registerComplaint();
-        cleanupInput();
-        closeForm();
-    } else {
-        displayError();
     }
 }
 
-function displayError() {
-    formError.style.display = "block";
-    if (!firstNameInput.value) {
-        styleError(firstNameInput);
-    }
-    if (!lastNameInput.value) {
-        styleError(lastNameInput);
-    }
-    if (isEmailValid()) {
-        styleError(email);
-    }
-    if (!complaint.value) {
-        styleError(complaint);
-    }
-}
+submitBudgetBtn.addEventListener("click", showBudgetValue);
 
-function styleError(input) {
-    input.style.border = "1px solid red";
-}
+function showBudgetValue() {
+    isBudgetValid();
+    const budgetValue = budgetInput.value;
 
-function cleanupErrors() {
-    formError.style.display = "none";
-    firstNameInput.style.borderColor = "initial";
-    lastNameInput.style.borderColor = "initial";
-    email.style.borderColor = "initial";
-    complaint.style.borderColor = "initial";
-}
-
-function cleanupInput() {
-    firstNameInput.value = "";
-    lastNameInput.value = "";
-    email.value = "";
-    complaint.value = "";
-}
-
-function createUser(title, id, value) {
-    const newDiv = document.createElement("div");
-    const newParagraph = document.createElement("p");
-    const newValue = document.createElement("span");
-
-    container.append(newDiv);
-    newDiv.id = id;
-
-    newDiv.append(newParagraph);
-
-    newParagraph.textContent = title;
-
-    newParagraph.append(newValue);
-
-    newValue.textContent = value;
-
-    return newDiv;
-}
-
-function registerComplaint() {
-    container.append(
-        createUser("First Name: ", "info-container", firstNameInput.value)
-    );
-    container.append(
-        createUser("Last Name: ", "info-container", lastNameInput.value)
-    );
-    container.append(createUser("Email: ", "info-container", email.value));
-    container.append(
-        createUser("Complaint: ", "info-container", complaint.value)
-    );
-    container.append(createUser("Date: ", "date-container", time()));
+    const text = document.createTextNode("Current balance after expenses:" + budgetValue);
+    budgetForm.append(text);
+    text.remove;
 }
