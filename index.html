@@ -17,15 +17,18 @@
     <h1 class="title">Budget tracker</h1>
     <div class="container">
         <div class="left-container">
-            <select id="main-select">
-                <option id="current-budget" value="current-budget">Current Budget</option>
-                <option id="add-expense" value="add-expense">Add Expense</option>
+            <select id="budget-select">
+                <option value="current-budget">Current Budget</option>
+                <option value="add-expense">Add Expense</option>
             </select>
             <div class="current-budget-container">
                 <div class="current-budget-form">
                     <label for="current-budget-input" name="current-budget">Budget:</label>
-                    <input id="current-budget-input" type="number">
+                    <input id="current-budget-input" type="number" min="0">
                     <button id="submit-budget-btn">Submit Budget</button>
+                    <div id="budget-form-result">Current balance after expenses:
+                        <div id="balance"></div>
+                    </div>
                 </div>
             </div>
             <div class="add-expense-container">
@@ -33,7 +36,7 @@
                 <input id="expense-date" type="date">
 
                 <label for="expense-amount" name="expense-amount">Spent Amount:</label>
-                <input id="expense-amount" type="number">
+                <input id="expense-amount" type="number" min="0">
 
                 <label for="expense-type" name="expense-type">Expense Type:</label>
                 <select name="expense-type" id="expense-type">
