@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Task</title>
+    <link rel="stylesheet" href="stylewizard.css">
+    <script src="wizard.js" defer></script>
+</head>
+
+<body>
+    <div class="form-container">
+        <div class="name-form">
+            <label for="first-name">First Name</label>
+            <input id="first-name" type="text" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input id="last-name" type="text" name="last-name" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        </div>
+
+        <div class="adress-form invisible">
+            <label for="primary-adress">Primary adress</label>
+            <input id="primary-adress" type="text" name="primary-adress" required>
+
+            <label for="secondary-adress">Secondary adress</label>
+            <input id="secondary-adress" type="text" name="secondary-adress" placeholder="optional">
+
+            <label for="shirt-size">Shirt size</label>
+            <input id="shirt-size" type="text" name="shirt-size" required>
+        </div>
+
+        <div class="password-form invisible">
+            <div class="password-error"></div>
+            <label for="password">Password</label>
+            <input id="password" type="password" name="password" required>
+
+            <label for="rep-password">Repeat password</label>
+            <input id="rep-password" type="password" name="rep-password" required>
+        </div>
+
+        <div class="object-container invisible">
+            <textarea name="object" id="show-object" rows="10"></textarea>
+        </div>
+
+        <div class="buttons-container">
+            <button id="back-btn" class="invisible" type="button">Back</button>
+            <button id="continue-btn" type="button">Continue</button>
+        </div>
+    </div>
+</body>
+
+</html>
