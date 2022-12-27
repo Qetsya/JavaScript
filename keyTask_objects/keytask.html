@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Task</title>
+    <link rel="stylesheet" href="./keytask.css">
+    <script src="./keytask.js" defer></script>
+</head>
+
+<body>
+    <div class="left-side">
+        <label for="new-key">New Key</label>
+        <input type="text" id="new-key">
+
+        <label for="existing-key">Existing Keys</label>
+        <select name="keys" id="existing-key" disabled>
+            <option hidden disabled selected value> Select a Key </option>
+        </select>
+
+        <label for="value">Value</label>
+        <input type="text" id="value">
+
+        <button type="button" id="update-object-btn">Update object</button>
+    </div>
+
+    <div class="right-side">
+        <textarea name="object" id="object-displayer">{}</textarea>
+    </div>
+</body>
+
+</html>

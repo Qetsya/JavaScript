@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    gap: 100px;
+}
+
+body div {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 5px;
+}
+
+.left-side {
+    height: 200px;
+}
+
+#object-displayer {
+    height: 100%;
+    background-color: grey;
+    color: rgb(214, 214, 214);
+}
