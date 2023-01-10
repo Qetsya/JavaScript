@@ -39,22 +39,46 @@ function isPrimeNumber(n) {
 }
 isPrimeNumber(33);
 
-//3 nesupratau 3a salygos
-const convertCurrency = (amount, currency) => {
-  let sum;
-  switch (currency) {
-    case "dollars":
-      sum = amount * 1.05;
-      console.log(`${sum} dollars`);
-      break;
-    case "euros":
-      sum = amount * 0.95;
-      console.log(`${sum} euros`);
-      break;
-  }
+//3 
+
+const currencySymbolMap = {
+  $: 'dollars',
+  '€': 'euros',
+}
+
+const convertCurrency = (valueToConvert, convertTo) => {
+
+  const currencySymbol = valueToConvert.at(0); // paima pirma/nuline raide to parametro!
+  const convertedSymbolToCurrency = currencySymbolMap[currencySymbol];
+  const currencyValue = valueToConvert.substring(1);
+
+  return convertTo === 'dollars' ? `$${currencyValue * 1.05}` : `€${currencyValue * 0.95}`; //TERNARY OPERATOR
+
+  //KITI VARIANTAI
+  // let sum;
+
+  // if (convertTo === 'dollars') {
+  //   return `$${currencyValue * 1.05}`;
+  // }
+
+  // if (convertTo === 'euros') {
+  //   return `€${currencyValue * 0.95}`;
+  // }
+
+
+  // switch (convertTo) {
+  //   case 'dollars':
+  //     sum = amount * 1.05; 
+  //     console.log(`${sum} dollars`);
+  //     break;
+  //   case 'euros':
+  //     sum = amount * 0.95;
+  //     console.log(`${sum} euros`);
+  //     break;
+  // }
 };
 
-convertCurrency("10", "euros");
+convertCurrency("$10", "euros");
 
 //4
 const acceptFunction = (anotherFunction) => {
@@ -119,25 +143,25 @@ const calcFactorial = (number) => {
 
   switch (number) {
     case 0:
-        factorial = 1;
-        break;
+      factorial = 1;
+      break;
 
     case 1:
-        factorial = 1;
-        break;
+      factorial = 1;
+      break;
 
     default:
-        calcNumber(num);
-        function calcNumber(num) {
-          --num;
-      
-          if(num > 0) { 
-              factorial = factorial * num;
-          } else {
-              return factorial;
-          }
-          calcNumber(num);
+      calcNumber(num);
+      function calcNumber(num) {
+        --num;
+
+        if (num > 0) {
+          factorial = factorial * num;
+        } else {
+          return factorial;
         }
+        calcNumber(num);
+      }
   }
   console.log(factorial)
 };
